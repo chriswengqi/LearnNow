@@ -5,7 +5,6 @@ This app contains a few key features backed by Fireabase support:
 
 - Registration with E-mail & Password
 - Login with E-mail and Password
-
 - Navigation (react-native-navigation) between Homepage and sections of each chapter
 - Displaying of progress bar based on the number of sections completed
 - Local save of progress so that users can pick up where they left off when they re-login to the application

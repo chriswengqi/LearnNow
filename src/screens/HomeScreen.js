@@ -4,7 +4,6 @@ import ProgressBar from '../components/ProgressBar';
 import ListItem from '../components/ListItem';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
-
 export default function HomeScreen(props) {
 
   const userId = props["extraData"]["email"]
@@ -43,9 +42,7 @@ export default function HomeScreen(props) {
       if (!selectedItems.includes(itemId)) {
         setSelectedItems([...selectedItems, itemId]);
       }
-  
-  
-  
+
     };
   
     const saveProgress = async () => {
@@ -87,40 +84,43 @@ export default function HomeScreen(props) {
         borderColor: '#00c0ff'
       },
       itemText: {
-        fontSize: 16,
-        color: '#333'
+        fontSize: 20,
+        color: '#333',
+        textAlign: 'center',
+        padding: 10
       },
       progressBarContainer: {
-        marginTop: 20,
+        marginTop: 10,
         padding: 10
       }
     });
-
-        
-
 
 
         return (
             <ScrollView>
               <View style={styles.progressBarContainer}>
-              <ProgressBar progress={selectedItems.length * fraction} barColor='#ccc' fillColor='#00c0ff' />
-            </View>
-            <Text>Chapter Asia</Text>
+              <Text style={styles.itemText}>Your progress</Text>
+              <ProgressBar progress={selectedItems.length * fraction} barColor='#ccc' fillColor='#ff0000' />
+            </View >
+            <View style={styles.container}> 
+            <Text style={styles.itemText}>Chapter Asia</Text>
               {items1.map((item) => (
                       <ListItem key={item.id} item={item} onPress={handleItemPress} selectedItems={selectedItems} />
                     ))}
 
-            <Text>Chapter America</Text>
+            <Text style={styles.itemText}>Chapter America</Text>
 
               {items2.map((item) => (
                       <ListItem key={item.id} item={item} onPress={handleItemPress} selectedItems={selectedItems} />
                     ))}
 
-            <Text>Chapter Europe</Text>
+            <Text style={styles.itemText}>Chapter Europe</Text>
 
               {items3.map((item) => (
                       <ListItem key={item.id} item={item} onPress={handleItemPress} selectedItems={selectedItems} />
                     ))}
+
+            </View>
     
             </ScrollView>
             
