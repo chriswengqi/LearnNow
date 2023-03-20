@@ -43,6 +43,8 @@ export default function App() {
     }, []);
 
     // state restoration. Somehow it's not working properly even though i'm following the documentation properly.
+
+    /** 
     React.useEffect(() => {
       const restoreState = async () => {
         try {
@@ -65,14 +67,16 @@ export default function App() {
         restoreState();
       }
     }, [isReady]);
+
+    */
     
 
   return (
-    <NavigationContainer ref={navigationRef} initialState={initialState}
-    onStateChange={(state) =>
+    <NavigationContainer ref={navigationRef} 
+    // onStateChange={(state) =>
       
-      AsyncStorage.setItem(PERSISTENCE_KEY + user["email"], JSON.stringify(state))
-    }>
+      // AsyncStorage.setItem(PERSISTENCE_KEY + user["email"], JSON.stringify(state))}
+    >
       <Stack.Navigator>
         { user ? (
           <>
