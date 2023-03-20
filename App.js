@@ -19,16 +19,13 @@ if (!global.atob) { global.atob = decode }
 
 const Stack = createStackNavigator();
 
-const PERSISTENCE_KEY = 'NAVIGATION_STATE_V1';
+// const PERSISTENCE_KEY = 'NAVIGATION_STATE_V1';
 
 export default function App() {
 
   // Set an initializing state whilst Firebase connects
   const [initializing, setInitializing] = useState(true);
   const [user, setUser] = useState();
-
-  const [isReady, setIsReady] = useState(__DEV__ ? false : true);
-  const [initialState, setInitialState] = useState();
 
   // Handle user state changes
   function onAuthStateChanged(user) {
